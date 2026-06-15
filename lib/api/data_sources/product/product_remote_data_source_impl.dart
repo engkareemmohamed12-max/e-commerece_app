@@ -24,7 +24,7 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   Future<List<Product>?> getProducts() async{
     try {
       var productResponse = await _apiServices.getAllProducts();
-      // todo : List<ProductDto> => List<Product>
+      // todo : List<ProductDto> => List<Product>//
       return productResponse.data?.map((prodDto)=> prodDto.toProduct()).toList();
     } on DioException catch (e) {
       String message = (e.error as AppExceptions).message;
