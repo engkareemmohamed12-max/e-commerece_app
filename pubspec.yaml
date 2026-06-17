@@ -48,6 +48,10 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   flutter_image_slideshow: ^0.1.6
   cached_network_image: ^3.4.1
+  auto_size_text: ^3.0.0
+  flutter_sliding_tutorial: ^2.1.0
+  readmore: ^3.0.0
+  shared_preferences: ^2.5.5
 
 
 

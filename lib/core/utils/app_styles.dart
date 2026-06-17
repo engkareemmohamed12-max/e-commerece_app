@@ -84,4 +84,10 @@ class AppStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.primaryDark,
   );
+
+  static final TextStyle medium14Header = GoogleFonts.poppins(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: AppColors.primaryDark,
+  );
 }

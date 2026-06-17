@@ -33,4 +33,8 @@ class AppAssets {
   static const String announcement1 = 'assets/images/first-slide.png';
 
   static const String announcement2 = 'assets/images/second-slide.png';
+
+  static const String announcement3 = 'assets/images/third-slide.png';
+
+  static const String starIcon = 'assets/images/star-icon.png';
 }

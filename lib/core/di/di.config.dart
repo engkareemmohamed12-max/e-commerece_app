@@ -52,6 +52,8 @@ import '../../features/ui/pages/home_screen/cubit/home_screen_view_model.dart'
     as _i114;
 import '../../features/ui/pages/home_screen/tabs/home_screen_tab/cubit/home_tab_view_model.dart'
     as _i514;
+import '../../features/ui/pages/home_screen/tabs/product_tab/cubit/product_view_model.dart'
+    as _i307;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -102,6 +104,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i939.GetAllProductsUseCase>(
       () => _i939.GetAllProductsUseCase(gh<_i774.ProductRepository>()),
+    );
+    gh.factory<_i307.ProductViewModel>(
+      () => _i307.ProductViewModel(gh<_i939.GetAllProductsUseCase>()),
     );
     gh.factory<_i471.LoginUseCase>(
       () => _i471.LoginUseCase(gh<_i660.AuthRepository>()),

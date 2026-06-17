@@ -7,6 +7,7 @@ import 'package:e_commerece_app/features/ui/auth/register/cubit/register_view_mo
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_colors.dart';
@@ -32,14 +33,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final rePasswordController = TextEditingController(text: 'Kareemninja12!');
   final formKey = GlobalKey<FormState>();
 
-  void register() async{
+  void register() async {
     if (formKey.currentState!.validate()) {
       viewModel.register(
-          email: emailController.text,
-          password: passwordController.text,
-          name: nameController.text,
-          rePassword: rePasswordController.text,
-          phone: phoneController.text);
+        email: emailController.text,
+        password: passwordController.text,
+        name: nameController.text,
+        rePassword: rePasswordController.text,
+        phone: phoneController.text,
+      );
     }
   }
 
@@ -54,32 +56,37 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return BlocListener<RegisterViewModel, AuthStates>(
       bloc: viewModel,
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is AuthLoadingState) {
-          DialogUtils.showLoading(context: context, loadindMessage: 'Loading...');
+          DialogUtils.showLoading(
+            context: context,
+            loadindMessage: 'Loading...',
+          );
         } else if (state is AuthErrorState) {
           DialogUtils.hideLoading(context: context);
           DialogUtils.showMessage(
-              context: context,
-              message: state.appExceptions.message,
-              title: 'Error',
-              postName: 'Ok');
+            context: context,
+            message: state.appExceptions.message,
+            title: 'Error',
+            postName: 'Ok',
+          );
         } else if (state is AuthSuccessState) {
+          final prefs = await SharedPreferences.getInstance();
+          await prefs.setString('user_phone', phoneController.text);
+
           DialogUtils.hideLoading(context: context);
           DialogUtils.showMessage(
-              context: context,
-              message: 'Register Successfully',
-              title: 'Success',
-              postName: 'Ok' ,
-            postAction: (){
+            context: context,
+            message: 'Register Successfully',
+            title: 'Success',
+            postName: 'Ok',
+            postAction: () {
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(builder: (context) => const LoginScreen()),
               );
-            }
+            },
           );
         }
       },
@@ -89,10 +96,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Center(
             child: SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 16.w,
-                  vertical: 24.h,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
                 child: Form(
                   key: formKey,
                   child: Column(
@@ -106,9 +110,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         fit: BoxFit.contain,
                       ),
                       SizedBox(height: 40.h),
-
-
-
 
                       // حقل اسم المستخدم / الإيميل
                       Text(
@@ -193,8 +194,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             return 'Please Enter Email';
                           }
                           final bool emailValid = RegExp(
-                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                              .hasMatch(text);
+                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+                          ).hasMatch(text);
                           if (!emailValid) {
                             return 'Please Enter Valid Email';
                           }
@@ -296,8 +297,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       SizedBox(height: 16.h),
 
-
-
                       SizedBox(height: 24.h),
                       // زر تسجيل الدخول (أبيض والكتابة باللون الأزرق)
                       CustomElevatedButton(
@@ -314,8 +313,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       ),
                       SizedBox(height: 24.h),
-
-
                     ],
                   ),
                 ),

@@ -22,7 +22,7 @@ class HomeScreenViewModel extends Cubit<HomeScreenStates>{
     HomeScreenTab(),
     ProductScreenTab(),
     FavouriteScreenTab(),
-    ProfileScreenTab()
+    ProfileTabScreen()
 
   ];
 

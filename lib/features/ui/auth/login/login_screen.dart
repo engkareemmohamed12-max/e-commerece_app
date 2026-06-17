@@ -13,6 +13,7 @@ import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/widget/custom_elevated_button.dart';
 import '../../../../core/widget/custom_text_field.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -24,13 +25,13 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   bool isPasswordHidden = true;
 
-  final emailController = TextEditingController(text: "kareem2@gmail.com");
-  final passwordController = TextEditingController(text: 'Kareemninja12!');
+  final emailController = TextEditingController(text: "kareem1234@gmail.com");
+  final passwordController = TextEditingController(text: 'Kareemninja12345!');
   final formKey = GlobalKey<FormState>();
 
   void login() {
     if (formKey.currentState!.validate()) {
-       viewModel.login(emailController.text, passwordController.text);
+      viewModel.login(emailController.text, passwordController.text);
     }
   }
 
@@ -45,33 +46,50 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return BlocListener<LoginViewModel, AuthStates>(
       bloc: viewModel,
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is AuthLoadingState) {
-          DialogUtils.showLoading(context: context, loadindMessage: 'Waiting...');
+          DialogUtils.showLoading(
+            context: context,
+            loadindMessage: 'Waiting...',
+          );
         } else if (state is AuthErrorState) {
           DialogUtils.hideLoading(context: context);
           DialogUtils.showMessage(
-              context: context,
-              message: state.appExceptions.message,
-              title: 'Error',
-              postName: 'Ok');
-        } else if (state is AuthSuccessState) {
-          DialogUtils.hideLoading(context: context);
-          DialogUtils.showMessage(
-              context: context,
-              message: 'Login Successfully',
-              title: 'Success',
-              postName: 'Ok' ,
-              postAction: (){
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
-                );
-              }
+            context: context,
+            message: state.appExceptions.message,
+            title: 'Error',
+            postName: 'Ok',
           );
+        } else if (state is AuthSuccessState) {
+          final prefs = await SharedPreferences.getInstance();
+
+          await prefs.setString(
+            'user_name',
+            state.authResponse.user?.name ?? 'No Name',
+          );
+          await prefs.setString(
+            'user_email',
+            state.authResponse.user?.email ?? 'No Email',
+          );
+
+          String? serverPhone = state.authResponse.user?.phone;
+          if (serverPhone != null && serverPhone.isNotEmpty) {
+            await prefs.setString('user_phone', serverPhone);
+          } else {
+            String? existingPhone = prefs.getString('user_phone');
+            if (existingPhone == null) {
+              await prefs.setString(
+                'user_phone',
+                '01067810248',
+              ); // رقم افتراضي كـ Backup
+            }
+          }
+
+          DialogUtils.hideLoading(context: context);
+
+          Navigator.pushReplacementNamed(context, AppRoutes.homeRoute);
         }
       },
       child: Scaffold(
@@ -80,10 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Center(
             child: SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 16.w,
-                  vertical: 24.h,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
                 child: Form(
                   key: formKey,
                   child: Column(
@@ -101,12 +116,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       // نص الترحيب
                       Text(
                         "Welcome Back To Route",
-                        style: AppStyles.semi24White
+                        style: AppStyles.semi24White,
                       ),
                       SizedBox(height: 4.h),
                       Text(
                         "Please sign in with your mail",
-                        style: AppStyles.light16White
+                        style: AppStyles.light16White,
                       ),
                       SizedBox(height: 32.h),
 
@@ -135,8 +150,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             return 'Please Enter Email';
                           }
                           final bool emailValid = RegExp(
-                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                              .hasMatch(text);
+                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+                          ).hasMatch(text);
                           if (!emailValid) {
                             return 'Please Enter Valid Email';
                           }
@@ -245,7 +260,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.pushReplacementNamed(context, AppRoutes.registerRoute);
+                              Navigator.pushReplacementNamed(
+                                context,
+                                AppRoutes.registerRoute,
+                              );
                             },
                             child: Text(
                               "Create Account",

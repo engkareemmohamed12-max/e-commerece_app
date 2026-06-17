@@ -47,7 +47,8 @@ class _HomeScreenTabState extends State<HomeScreenTab> {
 
             _buildAnnouncement(images: [
               AppAssets.announcement1,
-              AppAssets.announcement2
+              AppAssets.announcement2,
+              AppAssets.announcement3,
             ]),
             SizedBox(
               height: 24.h,
