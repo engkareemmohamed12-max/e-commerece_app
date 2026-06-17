@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const HomeScreenTab(),
     const ProductScreenTab(),
     const FavouriteScreenTab(),
-    const ProfileScreenTab(),
+    const ProfileTabScreen(),
   ];
 
   @override
@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return  Scaffold(
           backgroundColor: Colors.white,
 
-          appBar: _buildAppBar(),
+          appBar: viewModel.selectedIndex == 3 ? null : _buildAppBar(),
 
           body: tabs[viewModel.selectedIndex],
 

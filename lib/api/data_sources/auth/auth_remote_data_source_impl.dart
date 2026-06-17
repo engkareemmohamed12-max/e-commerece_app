@@ -4,6 +4,7 @@ import 'package:e_commerece_app/api/api_services.dart';
 import 'package:e_commerece_app/api/mapper/auth/auth_response_mapper.dart';
 import 'package:e_commerece_app/api/mapper/auth/login_request_mapper.dart';
 import 'package:e_commerece_app/api/mapper/auth/register_mapper.dart';
+import 'package:e_commerece_app/core/cache/shared_prefs_utils.dart';
 import 'package:e_commerece_app/data/data_sources/remote/auth/auth_remote_data_source.dart';
 import 'package:e_commerece_app/domain/entities/request/auth/login/login_request.dart';
 import 'package:e_commerece_app/domain/entities/request/auth/register/register_request.dart';
@@ -19,6 +20,11 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   Future<AuthResponse> login(LoginRequest loginRequest) async{
     //todo : loginRequest => loginRequestDto
     var authResponse = await _apiServices.login(loginRequest.toLoginRequestDto());
+
+    // todo : save token
+
+    await SharedPrefsUtils.saveData(key: 'token' , value: authResponse.token??'');
+
     // todo : authResponseDto => authResponse
     return authResponse.toAuthResponse() ;
   }
