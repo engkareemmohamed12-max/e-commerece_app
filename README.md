@@ -49,11 +49,11 @@ The project demonstrates best practices in Flutter development using feature-bas
 
 ### Categories Screen
 
-<img width="1264" height="2736" alt="Screenshot_20260705_000337_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/e771b71e-3e59-4321-884c-9f8960ffdbd8" />
+<img width="300"  alt="Screenshot_20260705_000337_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/a5a10589-4b93-42f5-908d-bb417a5001f8" />
 
 ### Product Details Screen
 
-<img width="1264" height="2736" alt="Screenshot_20260705_000458_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/4587eb31-87d5-469d-882e-6306b3fc83e0" />
+<img width="300"  alt="Screenshot_20260705_000458_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/75823348-5b4f-43c6-a50e-721843f21d4e" />
 
 ### Cart Screen
 
@@ -61,7 +61,7 @@ The project demonstrates best practices in Flutter development using feature-bas
 
 ### Profile Screen
 
-<img width="1264" height="2736" alt="Screenshot_20260705_000409_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/077abc3d-7feb-437e-b9b4-a3e1b81080ca" />
+<img width="300"  alt="Screenshot_20260705_000409_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/433fcbeb-6f7f-4cdf-aa30-116f25eb3863" />
 
 ---
 
