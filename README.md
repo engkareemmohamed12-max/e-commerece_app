@@ -1,4 +1,4 @@
-<img width="1264" height="2736" alt="Screenshot_20260705_000321_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/dbc1df20-9650-417a-be1f-0a535943bd88" /># 🛒 ShopEase — Flutter E-Commerce Application
+# 🛒 ShopEase — Flutter E-Commerce Application
 
 ![Flutter](https://img.shields.io/badge/Flutter-3.x-blue)
 ![Dart](https://img.shields.io/badge/Dart-3.x-blue)
