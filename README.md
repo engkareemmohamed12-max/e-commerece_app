@@ -37,13 +37,14 @@ The project demonstrates best practices in Flutter development using feature-bas
 
 ### Authentication
 
-<img width="1264" height="2736" alt="Screenshot_20260705_000238_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/aa7e687e-4009-42ab-aee7-25e2663018fa" />
-<img width="1264" height="2736" alt="Screenshot_20260705_000247_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/e3c73199-b2fb-4faa-8035-4340660b8cf8" />
+<img width="300"  alt="Screenshot_20260705_000238_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/ccaad2c7-bd65-49ec-bb2b-232441ad5993" />
+<img width="300"  alt="Screenshot_20260705_000247_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/d743ef6a-5add-4543-9ccb-25c4e641d3a2" />
+
 
 
 ### Home Screen
 
-<img width="1264" height="2736" alt="Screenshot_20260705_000321_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/4b5c103d-877b-4371-bb9b-a6fc2a774e01" />
+<img width="300"  alt="Screenshot_20260705_000321_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/3890b582-a764-44e7-99ec-9f34c6c9d3e2" />
 
 
 ### Categories Screen
