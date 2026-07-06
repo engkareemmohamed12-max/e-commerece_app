@@ -1,4 +1,4 @@
-# 🛒 ShopEase — Flutter E-Commerce Application
+<img width="1264" height="2736" alt="Screenshot_20260705_000321_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/dbc1df20-9650-417a-be1f-0a535943bd88" /># 🛒 ShopEase — Flutter E-Commerce Application
 
 ![Flutter](https://img.shields.io/badge/Flutter-3.x-blue)
 ![Dart](https://img.shields.io/badge/Dart-3.x-blue)
@@ -37,20 +37,22 @@ The project demonstrates best practices in Flutter development using feature-bas
 
 ### Authentication
 
-<img width="300" alt="Login Screen" src="YOUR_LOGIN_IMAGE" />
-<img width="300" alt="Register Screen" src="YOUR_REGISTER_IMAGE" />
+<img width="1264" height="2736" alt="Screenshot_20260705_000238_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/aa7e687e-4009-42ab-aee7-25e2663018fa" />
+<img width="1264" height="2736" alt="Screenshot_20260705_000247_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/e3c73199-b2fb-4faa-8035-4340660b8cf8" />
+
 
 ### Home Screen
 
-<img width="300" alt="Home Screen" src="YOUR_HOME_IMAGE" />
+<img width="1264" height="2736" alt="Screenshot_20260705_000321_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/4b5c103d-877b-4371-bb9b-a6fc2a774e01" />
+
 
 ### Categories Screen
 
-<img width="300" alt="Categories Screen" src="YOUR_CATEGORIES_IMAGE" />
+<img width="1264" height="2736" alt="Screenshot_20260705_000337_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/e771b71e-3e59-4321-884c-9f8960ffdbd8" />
 
 ### Product Details Screen
 
-<img width="300" alt="Product Details" src="YOUR_PRODUCT_DETAILS_IMAGE" />
+<img width="1264" height="2736" alt="Screenshot_20260705_000458_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/4587eb31-87d5-469d-882e-6306b3fc83e0" />
 
 ### Cart Screen
 
@@ -58,7 +60,7 @@ The project demonstrates best practices in Flutter development using feature-bas
 
 ### Profile Screen
 
-<img width="300" alt="Profile Screen" src="YOUR_PROFILE_IMAGE" />
+<img width="1264" height="2736" alt="Screenshot_20260705_000409_com_example_e_commerece_app_MainActivity" src="https://github.com/user-attachments/assets/077abc3d-7feb-437e-b9b4-a3e1b81080ca" />
 
 ---
 
