@@ -57,7 +57,7 @@ The project demonstrates best practices in Flutter development using feature-bas
 
 ### Cart Screen
 
-<img width="300" alt="Cart Screen" src="YOUR_CART_IMAGE" />
+<img width="300"  alt="Screenshot (1)" src="https://github.com/user-attachments/assets/4498e7e0-ed8f-4480-a4b6-2d91817e2c78" />
 
 ### Profile Screen
 
