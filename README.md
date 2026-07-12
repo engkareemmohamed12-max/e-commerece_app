@@ -68,7 +68,11 @@ The project demonstrates best practices in Flutter development using feature-bas
 
 Watch a quick walkthrough of the application.
 
-YOUR_VIDEO_LINK
+
+
+https://github.com/user-attachments/assets/251809f2-bd33-4d7d-b85c-0ef90deee5f6
+
+
 
 ---
 
