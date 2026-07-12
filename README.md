@@ -23,7 +23,6 @@ The project demonstrates best practices in Flutter development using feature-bas
 - 🛒 Shopping Cart
 - ➕ Add Products to Cart
 - ✏️ Update Cart Quantity
-- ❌ Remove Products from Cart
 - 👤 User Profile
 - 🌐 REST API Integration
 - ⚡ Loading & Error Handling
