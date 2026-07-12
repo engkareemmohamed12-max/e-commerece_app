@@ -3,6 +3,8 @@ import 'package:e_commerece_app/core/utils/app_routes.dart';
 import 'package:e_commerece_app/core/utils/app_theme.dart';
 import 'package:e_commerece_app/features/ui/auth/login/login_screen.dart';
 import 'package:e_commerece_app/features/ui/auth/register/register_screen.dart';
+import 'package:e_commerece_app/features/ui/pages/cart_screen/cart_screen.dart';
+import 'package:e_commerece_app/features/ui/pages/cart_screen/cubit/cart_screen_view_model.dart';
 import 'package:e_commerece_app/features/ui/pages/home_screen/home_screen.dart';
 import 'package:e_commerece_app/features/ui/pages/home_screen/tabs/product_tab/product_details.dart';
 import 'package:e_commerece_app/features/ui/pages/home_screen/tabs/product_tab/product_screen_tab.dart';
@@ -27,7 +29,11 @@ void main() async{
   }else{
     routeName = AppRoutes.homeRoute;
   }
-  runApp(MyApp(routeName: routeName,));
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(create: (context) => getIt<CartScreenViewModel>())
+    ],
+      child: MyApp(routeName: routeName,)));
 }
 
 class MyApp extends StatelessWidget {
@@ -52,6 +58,7 @@ class MyApp extends StatelessWidget {
             AppRoutes.homeRoute: (context) => const HomeScreen(),
             AppRoutes.productDetailsRoute: (context) => const ProductDetails(),
             AppRoutes.productRoute: (context) => const ProductScreenTab(),
+            AppRoutes.cartScreen: (context) => const CartScreen(),
           },
           theme: AppTheme.lightTheme,
         );

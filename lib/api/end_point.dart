@@ -12,6 +12,9 @@ class EndPoint {
 
   static const String productsApi = 'products';
 
+  static const String cartApi = 'cart';
+
+
 
 
 }

@@ -18,6 +18,7 @@ import '../../api/api_services.dart' as _i394;
 import '../../api/data_sources/auth/auth_remote_data_source_impl.dart' as _i34;
 import '../../api/data_sources/brand/brands_remote_data_source_impl.dart'
     as _i340;
+import '../../api/data_sources/cart/cart_remote_data_source_impl.dart' as _i638;
 import '../../api/data_sources/category/category_remote_data_source_impl.dart'
     as _i494;
 import '../../api/data_sources/product/product_remote_data_source_impl.dart'
@@ -27,27 +28,35 @@ import '../../data/data_sources/remote/auth/auth_remote_data_source.dart'
     as _i202;
 import '../../data/data_sources/remote/brand/brand_remote_data_source.dart'
     as _i167;
+import '../../data/data_sources/remote/cart/cart_remote_data_source.dart'
+    as _i358;
 import '../../data/data_sources/remote/category/category_remote_data_source.dart'
     as _i89;
 import '../../data/data_sources/remote/product/product_remote_data_source.dart'
     as _i1038;
 import '../../data/repositories/auth/auth_repository_impl.dart' as _i24;
 import '../../data/repositories/brand/brand_repository_impl.dart' as _i155;
+import '../../data/repositories/cart/cart_repository_impl.dart' as _i959;
 import '../../data/repositories/category/category_repository_impl.dart'
     as _i702;
 import '../../data/repositories/product/product_repository_impl.dart' as _i322;
 import '../../domain/repositories/auth/auth_repository.dart' as _i660;
 import '../../domain/repositories/brand/brand_repository.dart' as _i825;
+import '../../domain/repositories/cart/cart_repository.dart' as _i388;
 import '../../domain/repositories/category/category_repository.dart' as _i612;
 import '../../domain/repositories/product/product_repository.dart' as _i774;
+import '../../domain/use_cases/add_product_cart_use_case.dart' as _i645;
 import '../../domain/use_cases/get_all_brands_use_case.dart' as _i773;
 import '../../domain/use_cases/get_all_categories_use_case.dart' as _i201;
 import '../../domain/use_cases/get_all_products_use_case.dart' as _i939;
+import '../../domain/use_cases/get_items_cart_use_case.dart' as _i252;
 import '../../domain/use_cases/login_use_case.dart' as _i471;
 import '../../domain/use_cases/register_use_case.dart' as _i479;
 import '../../features/ui/auth/login/cubit/login_view_model.dart' as _i245;
 import '../../features/ui/auth/register/cubit/register_view_model.dart'
     as _i873;
+import '../../features/ui/pages/cart_screen/cubit/cart_screen_view_model.dart'
+    as _i912;
 import '../../features/ui/pages/home_screen/cubit/home_screen_view_model.dart'
     as _i114;
 import '../../features/ui/pages/home_screen/tabs/home_screen_tab/cubit/home_tab_view_model.dart'
@@ -90,6 +99,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i1038.ProductRemoteDataSource>(
       () => _i392.ProductRemoteDataSourceImpl(gh<_i394.ApiServices>()),
     );
+    gh.factory<_i358.CartRemoteDataSource>(
+      () => _i638.CartRemoteDataSourceImpl(gh<_i394.ApiServices>()),
+    );
     gh.factory<_i774.ProductRepository>(
       () => _i322.ProductRepositoryImpl(gh<_i1038.ProductRemoteDataSource>()),
     );
@@ -98,6 +110,15 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i773.GetAllBrandsUseCase>(
       () => _i773.GetAllBrandsUseCase(gh<_i825.BrandRepository>()),
+    );
+    gh.factory<_i388.CartRepository>(
+      () => _i959.CartRepositoryImpl(gh<_i358.CartRemoteDataSource>()),
+    );
+    gh.factory<_i645.AddProductCartUseCase>(
+      () => _i645.AddProductCartUseCase(gh<_i388.CartRepository>()),
+    );
+    gh.factory<_i252.GetItemsCartUseCase>(
+      () => _i252.GetItemsCartUseCase(gh<_i388.CartRepository>()),
     );
     gh.factory<_i612.CategoryRepository>(
       () => _i702.CategoryRepositoryImpl(gh<_i89.CategoryRemoteDataSource>()),
@@ -116,6 +137,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i201.GetAllCategoriesUseCase>(
       () => _i201.GetAllCategoriesUseCase(gh<_i612.CategoryRepository>()),
+    );
+    gh.factory<_i912.CartScreenViewModel>(
+      () => _i912.CartScreenViewModel(
+        gh<_i645.AddProductCartUseCase>(),
+        gh<_i252.GetItemsCartUseCase>(),
+      ),
     );
     gh.factory<_i514.HomeTabViewModel>(
       () => _i514.HomeTabViewModel(

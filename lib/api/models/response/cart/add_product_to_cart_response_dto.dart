@@ -35,7 +35,7 @@ class AddProductToCartResponseDto {
 @JsonSerializable()
 class Data {
   @JsonKey(name: "_id")
-  final String? Id;
+  final String? id;
   @JsonKey(name: "cartOwner")
   final String? cartOwner;
   @JsonKey(name: "products")
@@ -45,17 +45,17 @@ class Data {
   @JsonKey(name: "updatedAt")
   final String? updatedAt;
   @JsonKey(name: "__v")
-  final int? _V;
+  final int? v;
   @JsonKey(name: "totalCartPrice")
   final int? totalCartPrice;
 
   Data ({
-    this.Id,
+    this.id,
     this.cartOwner,
     this.products,
     this.createdAt,
     this.updatedAt,
-    this._V,
+    this.v,
     this.totalCartPrice,
   });
 

@@ -2,8 +2,12 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerece_app/core/utils/app_colors.dart';
 import 'package:e_commerece_app/core/utils/app_styles.dart';
+import 'package:e_commerece_app/core/utils/toast_utils.dart';
 import 'package:e_commerece_app/domain/entities/response/product/product.dart';
+import 'package:e_commerece_app/features/ui/pages/cart_screen/cubit/cart_screen_view_model.dart';
+import 'package:e_commerece_app/features/ui/pages/cart_screen/cubit/cart_states.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductTabItems extends StatelessWidget {
@@ -135,6 +139,7 @@ class ProductTabItems extends StatelessWidget {
                     InkWell(
                       onTap: (){
                         // todo : add to cart
+                        CartScreenViewModel.get(context).addProductCart(product.id??'');
                       },
                       splashColor: Colors.transparent,
                       child: Icon(

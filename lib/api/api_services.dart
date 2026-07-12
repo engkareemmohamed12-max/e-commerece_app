@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:e_commerece_app/api/end_point.dart';
+import 'package:e_commerece_app/api/models/request/cart/add/add_product_request_dto.dart';
+import 'package:e_commerece_app/api/models/response/cart/add/add_product_cart_response_dto.dart';
+import 'package:e_commerece_app/api/models/response/cart/get/get_cart_response_dto.dart';
 import 'package:e_commerece_app/api/models/response/category_brand/category_or_brand_response_dto.dart';
 import 'package:e_commerece_app/api/models/response/products/product_response_dto.dart';
 
@@ -30,4 +33,17 @@ abstract class ApiServices {
 
   @GET(EndPoint.productsApi)
   Future<ProductResponseDto> getAllProducts();
+  
+  
+  @POST(EndPoint.cartApi)
+  Future<AddProductCartResponseDto> addProductToCart(
+      @Body() AddProductRequestDto addProductRequest ,
+      @Header('token') String token
+      );
+
+  @GET(EndPoint.cartApi)
+  Future<GetCartResponseDto> getItemsInCart(
+      @Header('token') String token
+      );
+
 }
